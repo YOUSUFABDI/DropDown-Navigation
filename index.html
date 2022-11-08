@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown Navigation</title>
+    <link rel="shortcut icon" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <!-- logo -->
+        <div class="logo">
+            <img 
+            src="./images/logo.svg" 
+            alt="logo"
+            />
+        </div>
+
+        <!-- menu toggle for mobile screens -->
+        <button class="menu-open">
+            <img
+            src="./images/icon-menu.svg"
+            alt="menu-open"
+            />
+        </button>
+
+        <!-- navbar -->
+        <nav>
+            <ul class="nav-list">
+                 <!-- menu toggle for mobile screens -->
+                <button class="menu-close">
+                    <img 
+                    src="./images/icon-close-menu.svg" 
+                    alt="menu-close">
+                </button>
+                <!-- feature -->
+                <li class="feature">
+                    <button>Feature</button>
+                    <span class="arrow-down-btn">
+                        <img 
+                        class="arrown-img1"
+                        src="./images/icon-arrow-down.svg" 
+                        alt="arrow-down"
+                        />
+                    </span>
+
+                    <div class="drop-down-list-one">
+                        <ul class="drop-down-item">
+                            <li class="drop-down-child">
+                                <img 
+                                src="./images/icon-todo.svg"
+                                alt="todo"
+                                />
+                                <p>Todo List</p>
+                            </li>
+
+                            <li class="drop-down-child">
+                                <img 
+                                src="./images/icon-calendar.svg"
+                                alt="Calender"
+                                />
+                                <p>Calender</p>
+                            </li>
+
+                            <li class="drop-down-child">
+                                <img 
+                                src="./images/icon-reminders.svg"
+                                alt="Remainder"
+                                />
+                                <p>Remainder</p>
+                            </li>
+
+                            <li class="drop-down-child">
+                                <img 
+                                src="./images/icon-planning.svg"
+                                alt="Planning"
+                                />
+                                <p>Planning</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- company -->
+                <li class="company">
+                    <button>Company</button>
+                    <span class="arrow-down-btn">
+                        <img
+                        class="arrown-img2"
+                        src="./images/icon-arrow-down.svg"
+                        alt="arrow-down"
+                        />
+                    </span>
+                    <div class="drop-down-list com">
+                        <ul class="drop-down-item">
+                            <li class="company">History</li>
+                            <li class="company">Our Team</li>
+                            <li class="company">Blog</li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- careers -->
+                <li class="careers">
+                    <button>Careers</button>
+                </li>
+                <!-- about -->
+                <li class="about">
+                    <button>About</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- log & reg -->
+        <div class="log-reg">
+            <button class="login">Login</button>
+            <button class="register">Register</button>
+        </div>
+
+        <div class="overlay"></div>
+    </header>
+
+    <!-- showcase -->
+    <div class="showcase">
+        <div class="left-box">
+            <h2>Make <br> remote Work</h2>
+            <h2 class="br">Make remote Work</h2>
+            <p>Get your team in sync, no matter your location. <br> Streamline process. create team rituals. and <br> watch productivity soar.</p>
+            <button class="left-btn">Learn more</button>
+
+            <div class="icons">
+                <img 
+                src="./images/client-databiz.svg" 
+                alt="databiz"
+                />
+
+                <img 
+                src="./images/client-audiophile.svg" 
+                alt="databiz"
+                />
+
+                <img 
+                src="./images/client-meet.svg" 
+                alt="audiophile"
+                />
+
+                <img 
+                src="./images/client-maker.svg" 
+                alt="maker"
+                />
+            </div>
+        </div>
+
+        <div class="right-box">
+            <img
+            class="hero-desktop"
+            src="./images/image-hero-desktop.png" 
+            alt="hero-desktop"
+            />
+
+            <img
+            class="hero-mobile"
+            src="./images/image-hero-mobile.png"
+            alt="mobile"
+            />
+        </div>
+    </div>
+</body>
+</html>
