@@ -1,21 +1,8 @@
-/* colors */
-:root{
-    --Almost-White: hsl(0, 0%, 98%);
-    --Medium-Gray: hsl(0, 0%, 41%);
-    --Almost-Black: hsl(0, 0%, 8%);
-}
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Epilogue', sans-serif;
-}
-
-button{
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
 
 ul,
@@ -23,436 +10,326 @@ li{
     list-style-type: none;
 }
 
-.menu-open,
-.menu-close,
-.overlay{
-    display: none;
-}
-
-.hero-mobile{
-    display: none;
-}
-
-.br{
-    display: none;
-}
-
-.header{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 33px;
-}
-
-.nav-list{
-    display: flex;
-    justify-content: space-around;
-    width: 60vh;
-    margin-right: 60vh;
-}
-
-.nav-list li button{
-    color: var(--Medium-Gray);
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.nav-list li button:hover{
-    color: var(--Almost-Black);
-}
-
-.arrow-down-btn img{
-    padding-left: 0.4rem;
+button{
+    border: none;
+    background: transparent;
     cursor: pointer;
 }
 
-.close{
-    transform: rotate(180deg);
+.close-menu,
+.open-menu,
+.overlay,
+.mobile{
+    display: none;
 }
 
-.drop-down-list-one{
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-}
-
-/* js class to drop-down-list #1*/
-.drop-down-list-close{
-    background: var(--Almost-White);
-    box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
-    border-radius: 4px;
-    margin-top: 15px;
-    max-height: 400px;
-    height: 180px;
-    width: 190px;
-    padding: 0.3rem 1rem;
-    opacity: 1;
-}
-
-.com{
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-}
-
-/* js class to drop-down-list #2*/
-.drop-down-list-close2{
-    background: var(--Almost-White);
-    box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
-    border-radius: 4px;
-    margin-top: 15px;
-    max-height: 400px;
-    height: 150px;
-    width: 150px;
-    padding: 1rem 2rem;
-    line-height: 1.6;
-    opacity: 1;
-}
-
-.drop-down-item{
-    padding: 0.4rem 0;
-}
-
-.drop-down-child{
-    padding: 0.4rem 1rem;
-    display: flex;
-}
-
-.drop-down-child img{
-    padding-right: 0.8rem;
-}
-
-.drop-down-child p{
-    color: var(--Medium-Gray);
-    padding: 0.2rem;
-}
-
-.drop-down-item .company{
-    padding: 0.3rem;
-}
-
-.drop-down-item .company{
-    color: var(--Medium-Gray);
-}
-
-.log-reg{
-    width: 20%;
+.navbar{
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
-}
-
-.login{
-    font-size: 18px;
-    font-weight: bold;
-    background: transparent;
-    color: var(--Medium-Gray);
-}
-
-.login:hover{
-    color: var(--Almost-Black);
-}
-
-.register{
-    border: 1px solid var(--Medium-Gray);
-    background: transparent;
-    color: var(--Medium-Gray);
-    height: 50px;
-    width: 150px;
-    border-radius: 6rem;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
+    padding: 20px 0;
     align-items: center;
-    justify-content: center;
-    margin-top: -1rem;
 }
 
-.register:hover{
-    color: var(--Almost-Black);
-    border: 1px solid var(--Almost-Black);
-}
-
-/* showcase */
-.showcase{
+.navlinks{
+    width: 70%;
     display: flex;
     justify-content: space-between;
-    padding: 0 11rem;
+    align-items: center;
+}
+
+.nav-left{
+    display: flex;
+    margin-left: -6rem;
+}
+
+.nav-left li{
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.nav-left li .dropdown-link-layout span:nth-child(1),
+.lst span{
+    color: #696969;
+    cursor: pointer;
+}
+
+.nav-left li .dropdown-link-layout span:nth-child(1):hover,
+.lst span:hover{
+    color: #000;
+}
+
+.dropdown-link-layout span:nth-child(2){
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.dropdown-list li,
+.dropdown-list span{
+    width: fit-content;
+    margin-left: 0.4rem;
+    padding: 0.3rem 0;
+    color: #696969;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover,
+.dropdown-list span:hover{
+    color: #000;
+}
+
+.dropdown-list{
+    position: absolute;
+    background: #fff;
+    box-shadow: 0px 0px 30px hsl(0deg 0% 8% / 15%);
+    border-radius: 0.5rem;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: 0.85rem;
+    z-index: -1;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.18s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.dropdown-open{
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition: opacity 0.15s ease 0.15s, transform 0.18s ease 0.15s;
+}
+
+.dropdown-list-features{
+    top: 7%;
+    left: 12%;
+}
+
+.dropdown-list-company{
+    top: 7%;
+}
+
+.rotate{
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
+
+.nav-right{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+}
+
+.login button{
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.reg{
+    background: #FAFAFA;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5rem 1.3rem;
+    font-weight: bold;
+}
+
+.showcase{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 20px 0;
 }
 
 .left-box{
-    width: 100%;
-    height: 50vh;
-    padding-left: 8rem;
-    margin-top: 12rem;
-}
-
-.left-box h2{
-    color: var(--Almost-Black);
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'Epilogue', sans-serif;
-    padding: 0 0 3rem 0;
-}
-
-.left-box p{
-    color: var(--Medium-Gray);
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 0 0 3rem 0;
-}
-
-.left-btn{
-    background: var(--Almost-Black);
-    color: var(--Almost-White);
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    width: 170px;
-    height: 60px;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-}
-
-.left-btn:hover{
-    background: transparent;
-    color: var(--Almost-Black);
-    border: 1px solid var(--Medium-Gray);
-}
-
-.right-box .hero-desktop{
-    width: 100%;
-    margin-top: 2em;
-}
-
-.icons{
+    width: 500px;
     display: flex;
-    gap: 2rem;
-    height: 58.9%;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.info h1{
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.info p{
+    width: 390px;
+    color: #69697C;
+    padding: 2rem 0;
+}
+
+.btn{
+    background: #000;
+    color: #fff;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    width: fit-content;
+    padding: 0.8rem 1.3rem;
+    animation: fade 0.1s ease-in-out forwards;
+}
+
+.btn:hover{
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.images{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
     align-items: flex-end;
 }
 
-/* media qures */
-/* ipad screens */
-@media screen and (max-width: 1024px){
-    .header{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 3rem;
-    }
-
-    .login{
-        margin-right: 21%;
-    }
+.right-box{
+    width: 400px;
 }
-/* Mobile screens */
-@media screen and (max-width: 768px){
-    nav{
-        display: none;
-    }
 
-    .open{
+.right-box img{
+    width: 100%;
+}
+
+@media(max-width:50em){
+    .close-menu{
         display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
 
-    .log-reg{
-        display: none;
-        margin-left: 42%;
+    .open-menu{
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 20px;
     }
 
     .logo{
         position: absolute;
-        left: 0;
-        padding: 0 2rem;
+        left: 20px;
+        top: 20px;
+        cursor: pointer;
     }
 
-    .menu-open{
-        display: block;
-        position: absolute;
-        right: 0;
-        padding: 0 2rem;
-    }
-
-    .menu-close{
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 2rem;
-    }
-
-    .nav-list{
-        background: var(--Almost-White);
-        display: flex;
+    .navlinks{
+        display: none;
         flex-direction: column;
-        position: absolute;
-        top: 0;
+        justify-content: left;
+        padding: 0 1rem;
+        background: #fff;
+        position: fixed;
         bottom: 0;
-        left: 40%;
-        padding: 2rem;
-        width: 60%;
+        right: 0;
+        top: 0;
+        z-index: 5;
+        max-width: 300px;
+        width: 70vw;
+        animation: fade 1s ease-in-out forwards;
     }
 
-    .company{
-        position: relative;
-        top: -10%;
-    }
-
-    .careers{
-        position: relative;
-        top: -20%;
-    }
-
-    .about{
-        position: relative;
-        top: -30%;
-    }
-
-    .log-reg-open{
+    .nav-open{
         display: flex;
+    }
+
+    .nav-left{
         flex-direction: column;
-        position: absolute;
-        top: 69%;
-        padding: 2rem;
+        align-items: flex-start;
+        gap: 1.4rem;
+        padding-top: 5rem;
+        padding-left: 1rem;
     }
 
-    .login{
-        position: absolute;
-        bottom: 120%;
-        right: -48%;
-    }
-
-    .register{
-        position: absolute;
-        right: -70%;
-    }
-
-    .drop-down-list-one,
-    .com{
+    .dropdown-list{
+        display: none;
+        position: static;
         box-shadow: none;
+        margin-left: 1.2rem;
     }
 
-    /* overlay */
-    .overlay-open{
-        display: block;
-        background: rgba(0,0,0,0.5);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 60%;
-    }
-
-    /* showcase */
-    .showcase{
+    .dropdown-open{
         display: flex;
-        flex-direction: column-reverse;
-        position: relative;
-        z-index: -1;
-        height: 54vh;
+        flex-direction: column;
+        gap: 0.8rem;
     }
 
-    .hero-desktop{
-        display: none;
+    .nav-left li .dropdown-link-layout span:nth-child(1),
+    .lst span{
+        font-size: 1.3rem;
     }
 
-    .hero-mobile{
-        display: block;
-        position: absolute;
-        right: 0;
-        left: 0;
-        top: 12%;
-        width: 77vh;
-        height: 90%;
+    .nav-right{
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 30px;
     }
 
-    .left-box h2{
-        display: none;
-    }
-
-    .left-box .br{
-        display: block;
-        position: absolute;
-        bottom: -29%;
-        white-space: nowrap;
-        left: 10%;
-    }
-
-    .left-box p{
-        position: absolute;
-        bottom: -51%;
-        left: 10%;
-        font-size: 18px;
-        line-height: 1.6;
-    }
-
-    .left-btn{
-        position: absolute;
-        z-index: 1;
-        bottom: -59%;
-        left: 30%;
-    }
-
-    .icons{
-        position: absolute;
-        right: 0;
-        left: 10%;
-        margin-top: 21rem;
-    }
-}
-
-@media screen and (max-width: 414px){
-    .menu-open{
-        margin-right: -66%;
-    }
-    .nav-list{
-        position: absolute;
-        width: 100%;
-        margin-left: 68%;
-        background: white;
-        z-index: 1;
+    .reg button{
+        width: 30vw;
     }
 
     .overlay{
-        margin-right: -68%;
-        height: 220%;
-    }
-
-    .log-reg{
-        position: absolute;
-        right: -50%;
+        background: rgba(0,0,0,.6);
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
         z-index: 1;
+        animation: fade 1s ease-in-out forwards;
     }
 
-    .login{
-        margin-right: 2rem;
+    .add{
+        display: block;
     }
 
-    .hero-mobile{
-        margin-top: 4rem;
-        height: 70vh;
+    .desktop{
+        display: none;
     }
 
-    .left-box .br{
-        margin-bottom: -20rem;
-        margin-left: -1rem;
+    .mobile{
+        display: block;
     }
 
-    .left-box p{
-        margin-left: -1rem;
-        margin-bottom: -25rem;
+    .showcase{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .left-box{
         width: 100%;
     }
 
-    .left-btn{
-        margin-bottom: -30rem;
-        margin-left: -6rem;
+    .info h1{
+        width: 100%;
+        font-size: 2.8rem;
+        text-align: center;
     }
 
-    .icons{
-        margin-top: 55rem;
+    .info p{
+        width: 95%;
+        text-align: center;
+    }
+
+    .learn-more{
+        text-align: center;
+    }
+
+    .right-box{
+        width: 100%;
+    }
+
+    .images{
+        margin-top: 22px;
+        gap: 1rem;
+        padding: 1rem 2rem;
     }
 }

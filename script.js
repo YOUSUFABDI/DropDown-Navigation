@@ -1,41 +1,56 @@
-// dropdown vars
-const arrowDownImg1 = document.querySelector('.arrown-img1');
-const arrowDownImg2 = document.querySelector('.arrown-img2');
-const dropDownDiv = document.querySelector('.drop-down-list-one');
-const dropDownDiv2 = document.querySelector('.com');
-
-// menu toggle vars
-const menuOpen = document.querySelector('.menu-open');
-const navbar = document.querySelector('nav');
-const logAndReg = document.querySelector('.log-reg');
-const closeMenu = document.querySelector('.menu-close');
-const overlayDiv = document.querySelector('.overlay');
+const dropdownLink = document.querySelectorAll('.dropdown-link');
+const dropdown = document.querySelector('.dropdown-list-features');
+const dropdownLinkFeatures = document.querySelector('.dropdown-link-features');
 
 
-arrowDownImg1.addEventListener('click', closeDropDown);
-arrowDownImg2.addEventListener('click', closeDropDown2);
+const dropdownLinkCompany = document.querySelector('.dropdown-link-company');
+const dropdownCompany = document.querySelector('.dropdown-list-company');
 
-menuOpen.addEventListener('click', openNav);
+const arrowFeature = document.querySelector('.arrow-feature img');
+const arrowCompany = document.querySelector('.arrow-company img');
+
+const navLinks = document.querySelector('.navlinks');
+const openMenu = document.querySelector('.open-menu');
+const closeMenu = document.querySelector('.close-menu');
+const overlay = document.querySelector('.overlay');
+
+openMenu.addEventListener('click', openNav);
 closeMenu.addEventListener('click', closeNav);
 
-function closeDropDown() {
-    dropDownDiv.classList.toggle('drop-down-list-close');
-    arrowDownImg1.classList.toggle('close');
-}
-
-function closeDropDown2() {
-    dropDownDiv2.classList.toggle('drop-down-list-close2');
-    arrowDownImg2.classList.toggle('close');
-}
+dropdownLink.forEach(element => {
+    element.addEventListener('click', () => {
+        if(element === dropdownLink[0]) {
+            dropdown.toggleAttribute('data-visiable');
+            if(dropdown.hasAttribute('data-visiable')) {
+                dropdown.classList.add('dropdown-open');
+                dropdownLinkFeatures.setAttribute("aria-expanded", true);
+                arrowFeature.classList.add('rotate');
+            }else{
+                dropdown.classList.remove('dropdown-open');
+                dropdownLinkFeatures.setAttribute("aria-expanded", false);
+                arrowFeature.classList.remove('rotate');
+            }
+        }else{
+            dropdownCompany.toggleAttribute('data-visiable');
+            if(dropdownCompany.hasAttribute('data-visiable')){
+                dropdownCompany.classList.add('dropdown-open');
+                dropdownLinkCompany.setAttribute("aria-expanded", true);
+                arrowCompany.classList.add('rotate');
+            }else{
+                dropdownCompany.classList.remove('dropdown-open');
+                dropdownLinkCompany.setAttribute("aria-expanded", false);
+                arrowCompany.classList.remove('rotate');
+            }
+        }
+    });
+});
 
 function openNav() {
-    navbar.classList.add('open');
-    logAndReg.classList.add('log-reg-open');
-    overlayDiv.classList.add('overlay-open');
+    navLinks.classList.add('nav-open');
+    overlay.classList.add('add');
 }
 
 function closeNav() {
-    navbar.classList.remove('open');
-    logAndReg.classList.remove('log-reg-open');
-    overlayDiv.classList.remove('overlay-open');
+    navLinks.classList.remove('nav-open');
+    overlay.classList.remove('add');
 }
